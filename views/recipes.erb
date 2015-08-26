@@ -1,5 +1,12 @@
 <h1> Recipes </h1>
 
+<form action="/recipes/add" method="post">
+  <label for="ingredient">Recipe</label>
+  <input type="text" name="recipes" id="recipes"placeholder="ex:Chicken Tacos!">
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
+
+
 <% if @recipes == [] %>
 
   <p>Please add a recipe.</p>

@@ -17,3 +17,9 @@ get('/ingredients') do
   @ingredients = Ingredient.all()
   erb(:ingredients)
 end
+
+post('/ingredients') do
+  name = params.fetch("ingredient")
+  Ingredient.create({name: name})
+  redirect("/ingredients")
+  end

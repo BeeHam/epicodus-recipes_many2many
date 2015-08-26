@@ -1,5 +1,11 @@
 <h1> Ingredients </h1>
 
+<form action="/ingredients" method="post">
+  <label for="ingredient">Ingredient</label>
+  <input type="text" name="ingredient" id="ingredient"placeholder="ex:Salt">
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
+
 <% if @ingredients == [] %>
 
   <p> Please add an ingredient </p>
@@ -11,7 +17,7 @@
 
   <% @ingredients.each() do |ingredient|  %>
 
-  <li> <a href="/ingredient/<%= ingredient.id()%>"><%= ingredient.name() %></a> </li>
+  <li><a href="/ingredient/<%= ingredient.id()%>"><%= ingredient.name() %></a></li>
 
   <% end %>
 

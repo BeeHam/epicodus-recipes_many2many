@@ -1,6 +1,6 @@
 # require('spec_helper')
 #
-# describe(Recipe) do
+# describe(Meal) do
 #   it('') do
 #     expect().to(eq())
 #   end

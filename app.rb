@@ -22,4 +22,10 @@ post('/ingredients') do
   name = params.fetch("ingredient")
   Ingredient.create({name: name})
   redirect("/ingredients")
-  end
+end
+
+post('/recipes') do
+  name = params.fetch("recipes")
+  Recipe.create({:name => name})
+  redirect('/recipes')
+end

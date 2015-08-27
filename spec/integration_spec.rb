@@ -26,4 +26,20 @@ describe('user funtionality through Recipe application', {:type => :feature}) do
     click_button('Submit')
     expect(page).to have_content("Salt")
   end
+
+  it('will route to an individual recipe page') do
+    visit('/recipes')
+    fill_in("recipes", :with => "Burritos")
+    click_button('Submit')
+    click_link('Burritos')
+    expect(page).to have_content('Burritos')
+  end
+
+  it('will route to an individual ingredients page') do
+    visit('/ingredients')
+    fill_in('ingredient', with: "Pepper")
+    click_button('Submit')
+    click_link('Pepper')
+    expect(page).to have_content('Pepper')
+  end
 end

@@ -1,0 +1,25 @@
+<h2><%= @ingredient.name() %></h2>
+
+
+<form id="recipe" action="/recipe/<%= @ingredient.id() %>" method="post">
+  <input type="hidden" name="ingredient_id" id="ingredient_id" value="<% @ingredient.id() %>">
+  <label for="recipes">Recipes</label>
+  <input type="text" name="recipe" id="recipe" placeholder="ex. Tacos">
+  <button name="submit" class="btn btn-danger">Add</button>
+</form>
+
+
+<% if @ingredient.recipes.any?() %>
+  <h3>Recipe List</h3>
+
+  <ul>
+    <% @ingredient.recipes.each() do |ingredient_recipe| %>
+    <li><%= ingredient_recipe.name() %></li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+  <p> Please add recipes. </p>
+
+<% end %>

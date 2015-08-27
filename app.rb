@@ -29,3 +29,8 @@ post('/recipes') do
   Recipe.create({:name => name})
   redirect('/recipes')
 end
+
+get('/recipe/:id') do
+  @recipe = Recipe.find(params.fetch("id").to_i())
+  erb(:recipe)
+end

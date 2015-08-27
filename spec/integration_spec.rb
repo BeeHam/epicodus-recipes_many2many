@@ -42,4 +42,20 @@ describe('user funtionality through Recipe application', {:type => :feature}) do
     click_link('Pepper')
     expect(page).to have_content('Pepper')
   end
+
+  it('will delete a recipe') do
+    visit('/recipes')
+    fill_in("recipes", :with => "Burritos")
+    click_button('Submit')
+    click_button('Get it gone')
+    expect(page).to_not have_content("Burritos")
+  end
+
+  it('it will delete a ingredient') do
+    visit('/ingredients')
+    fill_in('ingredient', with: "Salt")
+    click_button('Submit')
+    click_button('Get it gone')
+    expect(page).to_not have_content('Salt')
+  end
 end

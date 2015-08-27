@@ -54,3 +54,17 @@ post('/ingredient/:id') do
   @ingredient.recipes.create({:name => recipe})
   redirect("/ingredient/#{@ingredient.id()}")
 end
+
+patch('/ingredient/:id') do
+  @ingredient = Ingredient.find(params.fetch("id").to_i())
+  ingredient = params.fetch('ingredient')
+  @ingredient.update({:name => ingredient})
+  redirect back
+end
+
+patch('/recipe/:id') do
+  @recipe = Recipe.find(params.fetch('id').to_i())
+  recipe = params.fetch('recipe')
+  @recipe.update({name: recipe})
+  redirect back
+end

@@ -68,3 +68,17 @@ patch('/recipe/:id') do
   @recipe.update({name: recipe})
   redirect back
 end
+
+delete('/recipes') do
+  recipe = Recipe.find(params.fetch('recipe_id').to_i())
+  recipe.destroy()
+  @recipes = Recipe.all()
+  redirect back
+end
+
+delete('/ingredients') do
+  ingredient = Ingredient.find(params.fetch('ingredient_id').to_i())
+  ingredient.destroy()
+  @ingredients = Ingredient.all()
+  redirect back
+end
